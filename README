@@ -1,0 +1,39 @@
+README
+
+directory structure
+|--root
+  |--data/
+    |--base/
+    |--processed/
+  |
+  |--ensemble/
+    |--results/
+    |--test/
+    |--train/
+  |
+  |--src
+    |--data.ipynb
+    |--models.ipynb
+    |--ensemble.ipynb
+
+Data:
+-> data processing code is found in src/data.ipynb
+-> train.csv and test.csv are placed inside data/base/
+-> once the data processing stage is complete, the modified datasets
+   are stored in data/processed/
+
+Models:
+-> model training code is found in src/model.ipynb
+-> models are trained by accessing the training and testing sets
+   found in data/processed
+-> predictions are made on the training set and are stored in ensemble/train/
+-> predictions are made on the testing set and are stored in ensemble/test/
+
+Ensembling:
+-> ensembling code is found in src/ensemble.ipynb
+-> the ensembler uses the training data from ensemble/train/
+   and the testing data from ensemble/test/
+-> predictions are stored in ensemble/results/ in the form of Kaggle submissions
+-> a .txt file is also stored with the same name as it's counterpart .csv
+   that includes the descriptions of the models used in the ensemble
+
